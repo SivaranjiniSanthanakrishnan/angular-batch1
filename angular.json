@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-baatch1"
+    }
+  },
+  "defaultProject": "angular-baatch1",
+  "cli": {
+    "analytics": "4a8baea1-4b90-40c1-9d80-dda769bf4ef9"
+  }
 }
