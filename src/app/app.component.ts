@@ -38,5 +38,32 @@ export class AppComponent {
       age:'24'
     }
   ]
+  career=""
+  careers=""
+  careerss="Interpolation careerss"
+  ismodelDisabled=false;
+  
+  disable(val){
+    this.ismodelDisabled=true;
+    this.careers=val;
+  }
 
+  submitData(values){
+    console.log('Form Values');
+    console.log(values)
+  }
+  yellowcolour="yellow"
+  changeColour(){
+    this.yellowcolour="blue";
+  }
+  err = false;
+  redcolour="red";
+  greencolour="green"
+  toggle(){
+    this.err=!this.err
+  }
+
+  pipeName = "sIvA rAnjini";
+  pipeDate = Date.now();
+  pipeNumber = 100;
 }

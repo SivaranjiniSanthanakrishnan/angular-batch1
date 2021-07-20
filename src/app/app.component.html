@@ -1,39 +1,40 @@
+<div style="margin-left: 20px;">
 <h2>Welcome to Angular</h2>
 <app-users></app-users>
 
-<h3>Click Event</h3>
+<h3><b>Click Event</b></h3>
 <button (click)="clickButton(username.value)" style="color: rebeccapurple;">Click Me</button>
 
-<h3>Key Up Event</h3>
+<h3><b>Key Up Event</b></h3>
 <input type="text" (keyup.enter)="myEvent(username.value)" #username> 
 
-<h3>Key Down Event</h3>
+<h3><b>Key Down Event</b></h3>
 <input type="text" (keydown.enter)="myEvent($event.target.value)"> 
 
-<h3>Blur</h3>
+<h3><b>Blur</b></h3>
 <input type="text" (blur)="myEvent($event.target.value)"> 
 
 <h3 style="background-color: red;" (mouseover)="myEvent('Hovered Here')"> Mouse Hover Example</h3>
 
 <h3 style="background-color: blue;" (mouseleave)="myEvent('UnHovered Here')"> Mouse Leave Example</h3>
 
-<h3>Binding Value</h3>
+<h3><b>Binding Value</b></h3>
 <input type="text" [value]="course" [disabled]="isDisabled"><br/> <br/>
 <input type="text" value={{course}} disabled={{isDisabled}}> <br/> <br/>
 <button (click)="enableText()"> Enable </button> <br/> <br/>
 
-<h3>If Loop</h3>
+<h3><b>If Loop</b></h3>
 <h5 *ngIf="show; then ifBlock else elseBlock"></h5>
 <ng-template #ifBlock>If Block</ng-template>
 <ng-template #elseBlock>Else Block</ng-template>
 
-<h3> Else if Condition </h3>
+<h3> <b>Else if Condition </b></h3>
 <ng-template [ngIf]="color=='red'"><p style="color: red;">Red Colour</p></ng-template>
 <ng-template [ngIf]="color=='green'"><p style="color: green;">Red Colour</p></ng-template>
 <ng-template [ngIf]="color=='blue'"><p style="color: blue;">Red Colour</p></ng-template>
 
 
-<h3>Switch Condition</h3>
+<h3><b>Switch Condition</b></h3>
 <div [ngSwitch]="colorSwitch">
     <h4 style="color: red;" *ngSwitchCase="'red'">Red Colour</h4>
     <h4 style="color: yellow;" *ngSwitchCase="'yellow'">Yellow Colour</h4>
@@ -42,7 +43,7 @@
     <h4 style="color: grey;" *ngSwitchDefault>Grey Colour</h4>
 </div>
 
-<h3>For Loop</h3>
+<h3><b>For Loop</b></h3>
 <table border="1">
 <tr>
     <th>Name</th>
@@ -53,3 +54,45 @@
     <td>{{row.age}}</td>
 </tr>
 </table>
+
+<h2><b>Two way Binding - ng-model</b></h2>
+<label>Ng-Model</label><input type="text" [(ngModel)]="career" [(disabled)]="ismodelDisabled" > <br/> <br/>
+<label>Ng-Bind</label><input type="text" #careersid [value]="careers" [disabled]="ismodelDisabled"> <br/> <br/>
+<label>Interpolation</label><input type="text" value="{{careerss}}" > <br/> <br/>
+{{career}}<br/>
+{{careers}} <br/>
+<button (click)="disable(careersid.value)" >Disable</button><br/> <br/>
+
+<h3><b>Forms in Angular</b></h3>
+<form #userForm = "ngForm" (ngSubmit)= "submitData(userForm.value)">
+    <input type="text" name="users" placeholder="Enter Name" ngModel> <br/> <br/>
+    <input type="text" name="email" placeholder="Enter Email" ngModel> <br/> <br/>
+    <input type="password" name="password" placeholder="Enter Password" ngModel> <br/> <br/>
+    <button type="submit">Submit</button>
+</form>
+
+<h3> <b>Style Binding</b></h3>
+
+<h4 style="color: red;" >Red Colour</h4>
+<h4 [style.color]="yellowcolour">Yellow Colour</h4>
+<button (click)="changeColour()">Change Colour</button>
+<h4 [style.color]= "err ? redcolour : greencolour"> Correct / Wrong </h4>
+<button (click)="toggle()">Toggle Error</button> <br/> <br/>
+
+<h3> <b>Angular Material</b></h3>
+<button mat-button color="primary">Primary</button>
+
+<h3> <b>Pipes</b></h3>
+<h4>{{pipeName | uppercase}}</h4>
+<h4>{{pipeName | lowercase}}</h4>
+<h4>{{pipeName | titlecase}}</h4>
+<h4>{{pipeDate | date: 'dd-MM-yyyy'}}</h4>
+<h4>{{pipeName | slice:0:4}}</h4>
+<h4>{{pipeNumber | currency:'INR'}}</h4>
+
+
+<h3> <b>Routing Module </b></h3>
+<a routerLink="login">Login</a> &nbsp; &nbsp; &nbsp;
+<a routerLink="register">Register</a> <br/> <br/>
+<router-outlet></router-outlet>
+</div>
