@@ -10,7 +10,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
-
+import { CustomDirectiveDirective } from './custom-directive.directive';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,14 +19,16 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     UsersComponent,
     LoginComponent,
     RegisterComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    CustomDirectiveDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

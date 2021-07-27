@@ -1,1 +1,12 @@
 <p>User Component!!!</p>
+<h3>Parent To Child</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let row of componentDetails" >
+        <td>{{row.name}}</td>
+        <td>{{row.age}}</td>
+    </tr>
+</table>

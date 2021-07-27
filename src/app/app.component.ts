@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
+import {UserServiceService} from './user-service.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
   title = 'angular-baatch1';
+  dataFromService = {}
+  dataFromAPI = {}
 
+   constructor(private userService : UserServiceService) {
+    this.dataFromService = userService.getData();
 
-  clickButton(val){
-    alert(val)
+     userService.getUsers().subscribe(data => {
+      this.dataFromAPI = data;
+    })
+  }
+
+  clickButton (val){
+    alert(val);
   }
 
   myEvent(val){
@@ -66,4 +78,19 @@ export class AppComponent {
   pipeName = "sIvA rAnjini";
   pipeDate = Date.now();
   pipeNumber = 100;
+
+  parentToChild = [{
+    name: 'XXX',
+    age: 24
+  },
+  {
+    name: 'YYY',
+    age: 25
+  }]
+
+  childToParentData = []
+
+  childToParent(data) {
+    this.childToParentData = data;
+  }
 }

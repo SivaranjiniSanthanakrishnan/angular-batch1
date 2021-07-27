@@ -1,6 +1,6 @@
 <div style="margin-left: 20px;">
 <h2>Welcome to Angular</h2>
-<app-users></app-users>
+<app-users [componentDetails] = "parentToChild" (childToParent) = "childToParent($event)"></app-users>
 
 <h3><b>Click Event</b></h3>
 <button (click)="clickButton(username.value)" style="color: rebeccapurple;">Click Me</button>
@@ -90,6 +90,50 @@
 <h4>{{pipeName | slice:0:4}}</h4>
 <h4>{{pipeNumber | currency:'INR'}}</h4>
 
+<h3>Child To Parent</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let row of childToParentData" >
+        <td>{{row.name}}</td>
+        <td>{{row.age}}</td>
+    </tr>
+</table> <br/> <br/>
+
+
+<h3>Custom Directive Example</h3>
+<h4>Normal Directive</h4>
+<h4 appCustomDirective>Custom Directive</h4>
+
+<h3>Data From Service</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let row of dataFromService" >
+        <td>{{row.name}}</td>
+        <td>{{row.age}}</td>
+    </tr>
+</table>  <br/> <br/>
+
+
+<h3>Data From API</h3>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    <tr *ngFor="let row of dataFromAPI" >
+        <td>{{row.name}}</td>
+        <td>{{row.email}}</td>
+    </tr>
+</table> 
+
+
+<br/> <br/>
 
 <h3> <b>Routing Module </b></h3>
 <a routerLink="login">Login</a> &nbsp; &nbsp; &nbsp;
