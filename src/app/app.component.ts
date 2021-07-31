@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import {UserServiceService} from './user-service.service'
 
 @Component({
@@ -13,7 +13,9 @@ export class AppComponent {
   dataFromService = {}
   dataFromAPI = {}
 
-   constructor(private userService : UserServiceService) {
+   constructor(private userService : UserServiceService, 
+    private vcr : ViewContainerRef,
+    private cfr: ComponentFactoryResolver) {
     this.dataFromService = userService.getData();
 
      userService.getUsers().subscribe(data => {
@@ -92,5 +94,13 @@ export class AppComponent {
 
   childToParent(data) {
     this.childToParentData = data;
+  }
+
+  async loadComponnent() {
+    this.vcr.clear();
+    const {TransactionComponent} = await import('./super-admin/transaction/transaction.component')
+    this.vcr.createComponent(
+      this.cfr.resolveComponentFactory(TransactionComponent)
+    )
   }
 }

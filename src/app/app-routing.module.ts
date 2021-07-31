@@ -13,8 +13,8 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: '**',
-    component:ErrorPageComponent
+    path:'admin', loadChildren: () => import('./admin/admin-routing.module')
+    .then(mod => mod.AdminRoutingModule)
   }
 ];
 

@@ -137,6 +137,23 @@
 
 <h3> <b>Routing Module </b></h3>
 <a routerLink="login">Login</a> &nbsp; &nbsp; &nbsp;
-<a routerLink="register">Register</a> <br/> <br/>
-<router-outlet></router-outlet>
+<a routerLink="register">Register</a>  <br/> <br/>
+<h3>Lazy Loading Routing</h3>
+Admin
+<ul> 
+    <li><a routerLink="admin/roles"> Roles </a></li>
+    <li><a routerLink="admin/editroles">Edit Roles</a></li>
+</ul>
+<h3>Group Routing</h3>
+Super - Admin
+<ul> 
+    <li><a routerLink="super-admin/roles"> Roles </a></li>
+    <li><a routerLink="super-admin/editroles">Edit Roles</a></li>
+</ul>
+<router-outlet></router-outlet> <br/>
+
+<h3>Lazy Loading Component</h3>
+<button (click)="loadComponnent()">Transaction Component</button>
+
+<br/> <br/>  <br/> <br/>  <br/> <br/>
 </div>

@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { CustomDirectiveDirective } from './custom-directive.directive';
 import {HttpClientModule} from '@angular/common/http'
+import { SuperAdminModule } from './super-admin/super-admin.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {HttpClientModule} from '@angular/common/http'
     FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    SuperAdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

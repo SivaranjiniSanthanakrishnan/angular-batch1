@@ -8,7 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class UsersComponent implements OnInit {
   @Input() componentDetails;
   @Output() childToParent: EventEmitter<any> = new EventEmitter();
-  constructor() { }
+  constructor() { 
+    console.log("Users")
+  }
 
   ngOnInit(): void {
     var childToParent = [{
