@@ -153,7 +153,59 @@ Super - Admin
 <router-outlet></router-outlet> <br/>
 
 <h3>Lazy Loading Component</h3>
-<button (click)="loadComponnent()">Transaction Component</button>
+<button (click)="loadComponnent()">Transaction Component</button> <br/> <br/>
 
+<h3>Template Driven Form</h3>
+<form #templateForm="ngForm" (ngSubmit)="submitTemplateForm(templateForm.value)">
+    <p>
+        <label for="firstname" >First Name</label>
+        <input type="text" name="firstname" ngModel required #firstName="ngModel"> <br/>
+        <span *ngIf="firstName.touched && firstName.invalid" style="color: red;"> Invalid FirstName </span>
+    </p>
+    <p>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" ngModel required #lastName="ngModel"><br/>
+        <span *ngIf="lastName.touched && lastName.invalid" style="color: red;"> Invalid LastName </span>
+    </p>
+    <p>
+        <label for="email">Email</label>
+        <input type="text" name="email" ngModel required #email="ngModel" email><br/>
+        <span *ngIf="email.touched && email.invalid" style="color: red;"> Invalid Email </span>
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <input type="password" name="password" ngModel required #password="ngModel" minlength="5" maxlength="15"><br/>
+        <span *ngIf="password.touched && password.invalid" style="color: red;"> Invalid Password </span>
+    </p>
+    <p>
+        <label for="gender">Gender</label>
+        <input type="radio" value="male" name="male" ngModel> Male
+        <input type="radio" value="female" name="female" ngModel> Female
+    </p>
+    <p>
+        <label for="agree">I agree to terms</label>
+        <input type="checkbox" name="agree" ngModel required #agree="ngModel"><br/>
+        <span *ngIf="agree.touched && agree.invalid" style="color: red;"> Agree to terms </span>
+    </p>
+    <p>
+        <button type="submit" [disabled]="templateForm.invalid">Submit</button>
+    </p>
+</form>
+<h3>Reactive Forms</h3>
+<form [formGroup]="reactiveForm" (ngSubmit)="submitReactiveForm(reactiveForm.value)">
+    <p class="form-group">
+        <label for="nameReactive" > Name</label>
+        <input type="text" name="nameReactive" class="form-control" formControlName="nameReactive" > <br/>
+    </p>
+    <p class="form-group">
+        <label for="emailReactive"> Email</label>
+        <input type="text" ngClass="is-invalid" name="emailReactive" class="form-control" formControlName="emailReactive"> <br/>
+    </p>
+    <p class="form-group">
+        <label for="passwordReactive" > Password</label>
+        <input type="text" name="passwordReactive" class="form-control" formControlName="passwordReactive"> <br/>
+    </p>
+    <button type="submit" [disabled]="reactiveForm.invalid">Submit</button>
+</form>
 <br/> <br/>  <br/> <br/>  <br/> <br/>
 </div>

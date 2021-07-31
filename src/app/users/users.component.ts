@@ -9,7 +9,7 @@ export class UsersComponent implements OnInit {
   @Input() componentDetails;
   @Output() childToParent: EventEmitter<any> = new EventEmitter();
   constructor() { 
-    console.log("Users")
+    console.log("Users");
   }
 
   ngOnInit(): void {

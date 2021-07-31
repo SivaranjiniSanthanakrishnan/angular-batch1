@@ -1,5 +1,6 @@
 import { Component, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import {UserServiceService} from './user-service.service'
+import {FormsModule, FormControl, FormGroup, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-root',
@@ -102,5 +103,23 @@ export class AppComponent {
     this.vcr.createComponent(
       this.cfr.resolveComponentFactory(TransactionComponent)
     )
+  }
+
+  submitTemplateForm(data) {
+    console.log(data)
+  }
+
+  reactiveForm= new FormGroup({
+    nameReactive : new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+    emailReactive : new FormControl('', [Validators.required, Validators.email]),
+    passwordReactive : new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(15)]),
+  })
+
+  get nameReactive() {return this.nameReactive.get('nameReactive')}
+  get emailReactive() {return this.emailReactive.get('emailReactive')}
+  get passwordReactive() {return this.passwordReactive.get('passwordReactive')}
+
+  submitReactiveForm(data) {
+    console.log(data)
   }
 }
